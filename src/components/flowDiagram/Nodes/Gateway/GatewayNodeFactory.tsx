@@ -1,8 +1,9 @@
 import * as React from "react";
 import { GatewayNodeModel } from "./GatewayNodeModel";
-import { GatewayNodeWidget } from "./GatewayNodeWidget";
+import { GatewayNode, GatewayPort, Spacer } from "./GatewayNode";
 import { AbstractReactFactory } from "@projectstorm/react-canvas-core";
-import { DiagramEngine } from "@projectstorm/react-diagrams-core";
+import { DiagramEngine, PortWidget } from "@projectstorm/react-diagrams-core";
+import { DefaultPortModel } from "@projectstorm/react-diagrams";
 
 export class GatewayNodeFactory extends AbstractReactFactory<
   GatewayNodeModel,
@@ -16,12 +17,35 @@ export class GatewayNodeFactory extends AbstractReactFactory<
     return new GatewayNodeModel({ name: "Gateway 1" });
   }
 
-  generateReactWidget(Gateway: any): JSX.Element {
+  generateReactWidget(event: any): JSX.Element {
     return (
-      <GatewayNodeWidget
-        engine={this.engine as DiagramEngine}
-        node={Gateway.model}
-      />
+      <GatewayNode model={event.model}>
+        <PortWidget
+          engine={this.engine}
+          port={event.model.getPort("in") || new DefaultPortModel(true)}
+        >
+          <GatewayPort />
+        </PortWidget>
+        <PortWidget
+          engine={this.engine}
+          port={event.model.getPort("out1") || new DefaultPortModel(false)}
+        >
+          <GatewayPort />
+        </PortWidget>
+        <Spacer />
+        <PortWidget
+          engine={this.engine}
+          port={event.model.getPort("out2") || new DefaultPortModel(false)}
+        >
+          <GatewayPort />
+        </PortWidget>
+        <PortWidget
+          engine={this.engine}
+          port={event.model.getPort("out3") || new DefaultPortModel(false)}
+        >
+          <GatewayPort />
+        </PortWidget>
+      </GatewayNode>
     );
   }
 }

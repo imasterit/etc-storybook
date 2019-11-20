@@ -14,6 +14,11 @@ import {
   EventNodePort,
   EventNode
 } from "../components/flowDiagram/Nodes/Event/EventNode";
+import {
+  GatewayPort,
+  GatewayNode,
+  Spacer
+} from "../components/flowDiagram/Nodes/Gateway/GatewayNode";
 
 storiesOf("RoundedButton", module)
   .add(
@@ -72,6 +77,27 @@ storiesOf("Flow diagram", module)
       </EventNode>
     ),
     { info: { inline: true } }
+  )
+  .add(
+    "Gateway Node",
+    () => (
+      <GatewayNode
+        model={{
+          name: "Sample gateway",
+          color: theme.COLORS.purple,
+          isSelected: () => false
+        }}
+      >
+        <GatewayPort />
+        <GatewayPort />
+        <Spacer />
+        <GatewayPort />
+        <GatewayPort />
+      </GatewayNode>
+    ),
+    {
+      info: { inline: true }
+    }
   )
   .add("Gray label", () => <GrayLabel>Text</GrayLabel>, {
     info: { inline: true }
