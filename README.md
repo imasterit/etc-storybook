@@ -1,3 +1,14 @@
+## Starting the storybook
+
+```
+git clone git@github.com:sljuka/etc-storybook.git
+cd etc-storybook
+yarn install
+yarn storybook
+```
+
+===
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
