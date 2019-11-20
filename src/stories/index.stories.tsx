@@ -2,7 +2,6 @@ import React from "react";
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import { RoundedButton } from "../components/RoundedButton";
 import { Diagram } from "../components/flowDiagram";
 import {
   ActivityNode,
@@ -20,27 +19,15 @@ import {
   Spacer
 } from "../components/flowDiagram/Nodes/Gateway/GatewayNode";
 
-storiesOf("RoundedButton", module)
-  .add(
-    "with text",
-    () => (
-      <RoundedButton color="hotpink" onClick={action("clicked")}>
-        Hello Button
-      </RoundedButton>
-    ),
-    { info: { inline: true } }
-  )
-  .add(
-    "with some emoji",
-    () => (
-      <RoundedButton color="papayawhip" onClick={action("clicked")}>
-        <span role="img" aria-label="so cool">
-          😀 😎 👍 💯
-        </span>
-      </RoundedButton>
-    ),
-    { info: { inline: true } }
-  );
+storiesOf("Table", module).add(
+  "with text",
+  () => (
+    <div color="hotpink" onClick={action("clicked")}>
+      table
+    </div>
+  ),
+  { info: { inline: true } }
+);
 
 storiesOf("Flow diagram", module)
   .add("Flow Diagram", () => <Diagram />, {

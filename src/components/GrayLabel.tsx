@@ -14,7 +14,6 @@ const Label = styled.div`
   background-color: ${({ theme }) => theme.COLORS.transparentGray};
   color: white;
   margin-top: 5px;
-  cursor: crosshair;
 `;
 
 export const GrayLabel = ({ children }: Props) => <Label>{children}</Label>;
