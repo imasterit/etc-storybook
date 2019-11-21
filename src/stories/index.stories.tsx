@@ -1,13 +1,11 @@
 import React from "react";
-
 import { storiesOf } from "@storybook/react";
-import { action } from "@storybook/addon-actions";
 import { Diagram } from "../components/flowDiagram";
 import {
   ActivityNode,
   ActivityNodePort
 } from "../components/flowDiagram/Nodes/Activity/ActivityNode";
-import { theme } from "../components/flowDiagram/theme";
+import { oldTheme as theme } from "../components/flowDiagram/theme";
 import { GrayLabel } from "../components/GrayLabel";
 import {
   EventNodePort,
@@ -18,15 +16,14 @@ import {
   GatewayNode,
   Spacer
 } from "../components/flowDiagram/Nodes/Gateway/GatewayNode";
+import { CustomThemeTable } from "../components/table";
 
-storiesOf("Table", module).add(
-  "with text",
-  () => (
-    <div color="hotpink" onClick={action("clicked")}>
-      table
-    </div>
-  ),
-  { info: { inline: true } }
+storiesOf("Grommet component lib", module).add(
+  "Sample table",
+  () => <CustomThemeTable />,
+  {
+    info: { inline: true }
+  }
 );
 
 storiesOf("Flow diagram", module)

@@ -16,7 +16,7 @@ export interface Props {
 const Body = styled.div<{ color: string; selected: boolean }>`
   border: solid 2px
     ${({ selected, theme }) =>
-      selected ? theme.COLORS.redOrange : theme.COLORS.gray};
+      selected ? theme.global.colors.redOrange : theme.global.colors.gray};
   border-radius: 5px;
   width: 60px;
   height: 60px;
@@ -25,7 +25,7 @@ const Body = styled.div<{ color: string; selected: boolean }>`
   align-items: flex-start;
   justify-content: space-between;
   align-content: space-between;
-  background-color: ${({ theme }) => theme.COLORS.purpleTransparent};
+  background-color: ${({ theme }) => theme.global.colors.purpleTransparent};
   pointer-events: all;
   cursor: crosshair;
   transform: rotate(45deg);
@@ -36,10 +36,10 @@ const Port = styled.div`
   width: 12px;
   height: 12px;
   border-radius: 3px;
-  background-color: ${({ theme }) => theme.COLORS.lightGray};
+  background-color: ${({ theme }) => theme.global.colors.lightGray};
   cursor: pointer;
   :hover {
-    background-color: ${({ theme }) => theme.COLORS.redOrange};
+    background-color: ${({ theme }) => theme.global.colors.redOrange};
   }
 `;
 

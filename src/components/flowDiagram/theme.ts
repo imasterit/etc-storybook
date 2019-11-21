@@ -1,4 +1,6 @@
-export const theme = {
+import { ThemeType } from "grommet";
+
+export const oldTheme = {
   COLORS: {
     white: "#ffffff",
     lightGray: "#a9a9a9",
@@ -15,4 +17,20 @@ export const theme = {
     yellowTransparent: "#ffff0099"
   },
   main: "mediumseagreen"
+};
+
+export const theme: ThemeType = {
+  global: {
+    font: {
+      family: "Roboto"
+    },
+    colors: {
+      ...oldTheme.COLORS
+    }
+  },
+  table: {
+    footer: {
+      border: undefined
+    }
+  }
 };

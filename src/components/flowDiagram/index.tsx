@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
-import { theme } from "./theme";
+import { oldTheme as theme } from "./theme";
 import { CanvasWidget } from "@projectstorm/react-canvas-core";
 import { DefaultNodeModel } from "@projectstorm/react-diagrams";
 import { ActivityNodeModel } from "./Nodes/Activity/ActivityNodeModel";

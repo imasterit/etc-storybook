@@ -14,15 +14,15 @@ const Container = styled.div`
   pointer-events: all;
   width: 100px;
   height: 100px;
-  background-color: ${({ theme }) => theme.COLORS.white};
+  background-color: ${({ theme }) => theme.global.colors.white};
   border-radius: 5px;
-  border: 1px solid ${({ theme }) => theme.COLORS.gray};
+  border: 1px solid ${({ theme }) => theme.global.colors.gray};
   width: 300px;
   cursor: default;
 `;
 
 const MainBar = styled.div`
-  background-color: ${({ theme }) => theme.COLORS.black};
+  background-color: ${({ theme }) => theme.global.colors.black};
   display: flex;
   justify-content: space-between;
   padding: 5px;
@@ -36,7 +36,7 @@ const X1 = styled.div`
 const X2 = styled.div`
   height: 13px;
   width: 2px;
-  background-color: ${({ theme }) => theme.COLORS.lightGray};
+  background-color: ${({ theme }) => theme.global.colors.lightGray};
   transform: rotate(45deg);
   z-index: 1;
 `;
@@ -44,13 +44,13 @@ const X2 = styled.div`
 const X3 = styled.div`
   height: 13px;
   width: 2px;
-  background-color: ${({ theme }) => theme.COLORS.lightGray};
+  background-color: ${({ theme }) => theme.global.colors.lightGray};
   transform: rotate(90deg);
   z-index: 2;
 `;
 
 const Title = styled.span`
-  color: ${({ theme }) => theme.COLORS.white};
+  color: ${({ theme }) => theme.global.colors.white};
   font-weight: bold;
 `;
 

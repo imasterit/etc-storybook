@@ -11,7 +11,7 @@ const Label = styled.div`
   padding: 2px;
   max-width: 140px;
   font-family: sans-serif;
-  background-color: ${({ theme }) => theme.COLORS.transparentGray};
+  background-color: ${({ theme }) => theme.global.colors.transparentGray};
   color: white;
   margin-top: 5px;
 `;
