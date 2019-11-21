@@ -2,7 +2,7 @@ import createEngine, { DiagramModel } from "@projectstorm/react-diagrams";
 import { ActivityNodeFactory } from "./Nodes/Activity/ActivityNodeFactory";
 import { EventNodeFactory } from "./Nodes/Event/EventNodeFactory";
 import { GatewayNodeFactory } from "./Nodes/Gateway/GatewayNodeFactory";
-import { DefaultState } from "./diagram/default-state";
+import { DefaultState } from "./diagram/DefaultState";
 import { ActivityNodeModel } from "./Nodes/Activity/ActivityNodeModel";
 import { EventNodeModel } from "./Nodes/Event/EventNodeModel";
 import { InputType } from "@projectstorm/react-canvas-core";

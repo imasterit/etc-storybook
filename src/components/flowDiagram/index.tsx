@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { ThemeProvider, createGlobalStyle } from "styled-components";
-import { oldTheme as theme } from "./theme";
+import { oldTheme, theme } from "./theme";
 import { CanvasWidget } from "@projectstorm/react-canvas-core";
 import { DefaultNodeModel } from "@projectstorm/react-diagrams";
 import { ActivityNodeModel } from "./Nodes/Activity/ActivityNodeModel";
@@ -8,6 +8,7 @@ import { EventNodeModel } from "./Nodes/Event/EventNodeModel";
 import { GatewayNodeModel } from "./Nodes/Gateway/GatewayNodeModel";
 import { DetailsOverlay } from "./DetailsOverlay";
 import { initEngine } from "./initEngine";
+import { Grommet } from "grommet";
 
 const engine = initEngine();
 
@@ -45,41 +46,43 @@ const GlobalStyle = createGlobalStyle`
 
 export const Diagram: React.FC = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Container
-        onDrop={event => {
-          var data = JSON.parse(
-            event.dataTransfer.getData("storm-diagram-node")
-          );
+    <ThemeProvider theme={oldTheme}>
+      <Grommet theme={theme}>
+        <GlobalStyle />
+        <Container
+          onDrop={event => {
+            var data = JSON.parse(
+              event.dataTransfer.getData("storm-diagram-node")
+            );
 
-          var node = null;
-          if (data.type === "in") {
-            node = new ActivityNodeModel({
-              name: "Node 2",
-              color: theme.COLORS.green
-            });
-          } else if (data.type === "event") {
-            node = new EventNodeModel({ name: "Event 2" });
-          } else if (data.type === "gateway") {
-            node = new GatewayNodeModel({
-              name: "Gateway",
-              color: theme.COLORS.purple
-            });
-          } else {
-            node = new DefaultNodeModel("Node 3", theme.COLORS.blue);
-            node.addOutPort("Out");
-          }
-          var points = engine.getRelativeMousePoint(event);
-          node.setPosition(points.x - 30, points.y - 30);
-          engine.getModel().addNode(node);
-          engine.repaintCanvas();
-        }}
-        onDragOver={event => event.preventDefault()}
-      >
-        <CanvasWidget engine={engine} className="diagram" />
-        <DetailsOverlay />
-      </Container>
+            var node = null;
+            if (data.type === "in") {
+              node = new ActivityNodeModel({
+                name: "Node 2",
+                color: oldTheme.COLORS.green
+              });
+            } else if (data.type === "event") {
+              node = new EventNodeModel({ name: "Event 2" });
+            } else if (data.type === "gateway") {
+              node = new GatewayNodeModel({
+                name: "Gateway",
+                color: oldTheme.COLORS.purple
+              });
+            } else {
+              node = new DefaultNodeModel("Node 3", oldTheme.COLORS.blue);
+              node.addOutPort("Out");
+            }
+            var points = engine.getRelativeMousePoint(event);
+            node.setPosition(points.x - 30, points.y - 30);
+            engine.getModel().addNode(node);
+            engine.repaintCanvas();
+          }}
+          onDragOver={event => event.preventDefault()}
+        >
+          <CanvasWidget engine={engine} className="diagram" />
+          <DetailsOverlay />
+        </Container>
+      </Grommet>
     </ThemeProvider>
   );
 };
