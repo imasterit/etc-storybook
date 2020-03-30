@@ -1,7 +1,7 @@
 ## Starting the storybook
 
 ```
-git clone git@github.com:sljuka/etc-storybook.git
+git clone git@github.com:imasterit/etc-storybook.git
 cd etc-storybook
 yarn install
 yarn storybook
